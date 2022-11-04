@@ -16,7 +16,9 @@ line_width = int(input("Enter the line width (deafault = 1): ") or 1)
 
 
 width = calculate_number_of_cells(depth) * cell_width
-height = depth * cell_width
+
+# + 2 is for padding
+height = (depth + 2) * cell_width
 
 center = width / 2
 
@@ -36,7 +38,8 @@ def main():
         context.set_line_width(line_width)
         # draw a cellular automatas
         for layer in range(depth):
-            y = layer * cell_width
+            # + cell_width is for padding too
+            y = layer * cell_width + cell_width
             num_of_cells = calculate_number_of_cells(layer)
             for cell in range(num_of_cells):
                 x = center - (num_of_cells / 2 - cell) * cell_width
